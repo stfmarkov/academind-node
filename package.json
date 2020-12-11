@@ -17,10 +17,10 @@
     "url": "https://github.com/stfmarkov/academind-node/issues"
   },
   "homepage": "https://github.com/stfmarkov/academind-node#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.6"
-  },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }

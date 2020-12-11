@@ -1,23 +1,18 @@
 import express from "express";
+import path from "path";
 
+const __dirname = path.resolve();
 const app = express();
 
-// app.use((req, res, next) => {
-//   console.log("First middleware");
-//   next();
-// });
-
-// app.use((req, res, next) => {
-//   console.log("Second middleware");
-//   res.send('Done!')
-// });
-
-app.use('/users', (req, res, next) => {
-    res.send("<h1>Users</h1>");
+app.get("/", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
-app.use('/', (req, res, next) => {
-    res.send("<h1>Home</h1>");
+app.get("/products", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "views", "products.html"));
 });
+
+app.use(express.static('public'))
+
 
 app.listen(3000, () => console.log("Server is listening on port 3000"));
