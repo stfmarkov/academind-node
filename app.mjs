@@ -1,18 +1,28 @@
+import bodyParser from "body-parser";
 import express from "express";
 import path from "path";
 
 const __dirname = path.resolve();
 const app = express();
 
+const users = [];
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.set("view engine", "ejs");
+
 app.get("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "views", "index.html"));
+  res.render("home", { pageTitle: "Home" });
 });
 
-app.get("/products", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "views", "products.html"));
+app.get("/users", (req, res, next) => {
+  res.render("users", { pageTitle: "Users", users });
 });
 
-app.use(express.static('public'))
-
+app.post("/users", (req, res, next) => {
+  res.redirect("/");
+  users.push(req.body.user);
+  console.log(users);
+});
 
 app.listen(3000, () => console.log("Server is listening on port 3000"));

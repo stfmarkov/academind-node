@@ -1,0 +1,13 @@
+<%- include('includes/head.ejs') %>
+
+<body>
+    <%- include('includes/mainNav.ejs') %>
+
+    <h1><%= pageTitle %></h1>
+
+    <% users.forEach(function (user) { %>
+        <h2>Name: <%= user %></h2>
+    <% }) %> 
+
+</body>
+</html>

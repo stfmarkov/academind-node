@@ -1,0 +1,17 @@
+<%- include('includes/head.ejs') %>
+
+<body>
+    <%- include('includes/mainNav.ejs') %>
+
+    <h1><%= pageTitle %></h1>
+
+    <form action="users" method="post">
+        <label for="user">
+            Add user
+            <input type="text" name="user" id="user">
+        </label>
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>
